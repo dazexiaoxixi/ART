@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relaGrid"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@drawable/login_shape"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingBottom="4dip" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/IdText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ID"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/scoreText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/itemImage"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="60dp"
+            android:ems="10"
+            android:gravity="center"
+            android:textSize="60sp" />
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stdNum"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/default_lock" />
+    </RelativeLayout>
+
+</RelativeLayout>

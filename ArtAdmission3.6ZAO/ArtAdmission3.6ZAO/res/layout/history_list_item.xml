@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ha"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/idText"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textviewborder"
+        android:gravity="center"
+        android:text="ID"
+        android:textSize="30sp" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/studentNumText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textviewborder"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="ID"
+        android:textSize="30sp" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textviewborder"
+        android:gravity="center"
+        android:text="ID"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textviewborder"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="ID"
+        android:textSize="30sp" >
+    </TextView>
+
+</LinearLayout>
