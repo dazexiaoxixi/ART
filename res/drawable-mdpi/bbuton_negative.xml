@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"><shape>
+            <solid android:color="#BFEFFF" />
+
+            <stroke android:width="2dp" android:color="#BFEFFF" />
+
+            <corners android:bottomLeftRadius="10dp" />
+        </shape></item>
+    <item android:state_enabled="false"><shape>
+            <solid android:color="#CDC9C9" />
+
+            <stroke android:width="2dp" android:color="#CDC9C9" />
+
+            <corners android:bottomLeftRadius="10dp" />
+        </shape></item>
+        
+    <item
+        android:drawable="@drawable/bbuton_negative_default">       
+    </item>
+
+</selector>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_selector"  >
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/choosedGroupId"
+        android:layout_alignBottom="@+id/choosedGroupId"
+        android:layout_marginRight="5dp"
+        android:text="第"
+        android:textSize="25sp"/>
+    
+	<TextView 
+	    android:id="@+id/choosedGroupId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="30sp"/>
+	
+	<TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/choosedGroupId"
+        android:layout_alignBottom="@+id/choosedGroupId"
+        android:layout_marginLeft="5dp"
+        android:text="组"
+        android:textSize="25sp"/>
+	
+</RelativeLayout>

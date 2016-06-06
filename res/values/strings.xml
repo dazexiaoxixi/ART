@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="app_name">检录员</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="point">.</string>
+    <string name="copyright">©2015 华中师范大学  学工部招生办公室  现代通信技术实验室  联合研制</string>
+	<style name="MyDialog" parent="@android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item> 
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>	
+    <style name="MyDialogNew" parent="@android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/back_shape</item>
+    </style>
+    <!-- TextView字体颜色和大小 -->
+    <style name="normalText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#444</item>
+        <item name="android:textSize">20sp</item>
+    </style>	
+        <style name="CustomDialog" parent="@android:style/Theme.Dialog">  
+    <item name="android:windowFrame">@null</item>  
+        <item name="android:windowIsFloating">true</item>  
+        <item name="android:windowContentOverlay">@null</item>  
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>  
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>  
+    </style>  
+      
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">  
+        <item name="android:windowBackground">@android:color/transparent</item>  
+        <item name="android:windowNoTitle">true</item>  
+    </style>  
+    
+</resources>
