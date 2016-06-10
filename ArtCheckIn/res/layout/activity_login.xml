@@ -1,0 +1,252 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginFrameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity" >
+
+  <!--   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" >
+    </LinearLayout>   -->
+
+    <LinearLayout
+        android:id="@+id/loginLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_background2"
+        android:orientation="vertical"
+        android:visibility="invisible" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <ImageView
+                android:id="@+id/ccnulogo_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ccnuslogo" />
+
+            <TextView
+                android:id="@+id/system_name_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/ccnulogo_login"
+                android:gravity="center"
+                android:text="艺术考试"
+                android:textSize="45sp" />
+
+            <TextView
+                android:id="@+id/system_name_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/ccnulogo_login"
+                android:gravity="center"
+                android:text="评分系统"
+                android:textSize="45sp" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/system_name_right"
+                android:gravity="center"
+                android:text="(检录员)"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/configButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_shapetouming"
+                android:text="网络配置"
+                android:textColor="#0080FF"
+                android:textSize="25sp" />
+           <!-- <Button
+                android:id="@+id/configButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_shapetouming"
+                android:text="网络配置"
+                android:textColor="#0080FF"
+                android:textSize="25sp" />
+
+             <Button
+                android:id="@+id/clearDb_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_shapetouming"
+                android:text="清空数据库"
+                android:textColor="#0080FF"
+                android:textSize="25sp" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/login_div"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" >
+
+            <!--
+        android:background="@drawable/login_shape"  
+        android:layout_marginBottom="100dip"
+        android:layout_marginLeft="50dip"
+        android:layout_marginRight="550dip"
+        android:layout_marginTop="100dip" -->
+
+
+            <!--
+            <TextView
+            android:id="@+id/login_user_input"
+            style="@style/normalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/system_name"
+            android:layout_marginTop="30dp"
+            android:text="用户名" /> -->
+
+            <EditText
+                android:id="@+id/username_edit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/edit_text_shape"
+                android:hint="用户名"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textSize="35sp" />
+            <!-- android:digits="1234567890qwertyuiopasdfghjklzxcvbnm" -->
+            <!--
+            <TextView
+            android:id="@+id/login_password_input"
+            style="@style/normalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username_edit"
+            android:layout_marginTop="20dp"
+            android:text="密码" /> -->
+
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/username_edit"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_text_shape"
+                android:hint="密码"
+                android:inputType="textPassword"
+                android:password="true"
+                android:singleLine="true"
+                android:textSize="35sp" />
+
+            <Button
+                android:id="@+id/signin_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/password_edit"
+                android:layout_below="@id/password_edit"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_shape"
+                android:gravity="center"
+                android:text="登     录"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/warningText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textColor="#ff0000"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="280dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="©华中师范大学 现代通信技术实验室"
+                    android:textColor="#D6D6D6"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="©华中师范大学 学工部招生办公室"
+                    android:textColor="#D6D6D6"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="联合研制"
+                    android:textColor="#D6D6D6"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_welcome" >
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="50dp"
+            android:text="艺术考试评分系统"
+            android:textColor="#EE5C42"
+            android:textSize="55sp" />
+    </RelativeLayout>
+
+</FrameLayout>
