@@ -34,5 +34,9 @@
         <item name="android:windowBackground">@android:color/transparent</item>  
         <item name="android:windowNoTitle">true</item>  
     </style>  
+    <string name="auto_sroll_msg">自主招生评分系统通知和消息栏</string>
+    <string name="app_title">自主招生</string>
+    <string name="welcome_msg">自主招生系统</string>
+    <string name="welcome_msg_long">欢迎进入自主招生评分系统</string>
     
 </resources>

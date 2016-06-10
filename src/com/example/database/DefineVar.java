@@ -8,6 +8,6 @@ public class DefineVar {
 	public static String ServerIP = null;
 	public static String ServerPort = null;
 //	public static String DEFAULT_IP = "122.204.148.187";
-	public static String DEFAULT_IP = "10.128.22.210";
-	public static String DEFAULT_PORT = "3206";
+	public static String DEFAULT_IP = "192.168.5.61";
+	public static String DEFAULT_PORT = "1234";
 }

@@ -311,7 +311,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:padding="3dp"
-    android:text="辅导员招聘评分系统通知和消息栏"
+    android:text="@string/auto_sroll_msg"
     android:inputType="text"
     android:background="#8F009ACD"
     android:textSize="25sp">

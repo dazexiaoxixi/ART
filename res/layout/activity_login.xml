@@ -39,7 +39,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toLeftOf="@id/ccnulogo_login"
                 android:gravity="center"
-                android:text="辅导员招聘"
+                android:text="@string/app_title"
                 android:textSize="45sp" />
 
             <TextView
@@ -82,6 +82,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_shapetouming"
+                android:visibility="gone"
                 android:text="删除数据库"
                 android:textColor="#0080FF"
                 android:textSize="25sp" />
@@ -255,7 +256,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="350dp"
             android:layout_marginTop="50dp"
-            android:text="辅导员招聘系统"
+            android:text="@string/welcome_msg"
             android:textColor="#EE5C42"
             android:textSize="55sp" />
     </RelativeLayout>

@@ -281,8 +281,8 @@ public class ArtCheckIn_Main extends Activity {
 					//sendStr = FrameFormat.COMMAND_CONNECT+"|"+getLocalMacAddress();
 					sendStr = FrameFormat.COMMAND_CONNECT+"|"+getCPUSerial();
 					SendInfoToServer(sendStr);
-					sendStr = FrameFormat.COMMAND_LOGIN+"|"+userNameStr+"|"+encryption(userPswStr)+"|"+"0";
-					SendInfoToServer(sendStr);
+//					sendStr = FrameFormat.COMMAND_LOGIN+"|"+userNameStr+"|"+encryption(userPswStr)+"|"+"0";
+//					SendInfoToServer(sendStr);
 					//timer.start();
 				}
 				else if(msg.what == FrameFormat.HANDLE_CONNECTSUCCESS)
@@ -290,16 +290,18 @@ public class ArtCheckIn_Main extends Activity {
 //					tickAnswertimer.cancel();
 					stopProgressDialog();
 					isCall = false;//清除线程已重启标志位
-//					sendStr = FrameFormat.COMMAND_LOGIN+"|"+userNameStr+"|"+encryption(userPswStr)+"|"+"0";
-//					SendInfoToServer(sendStr);
+					sendStr = FrameFormat.COMMAND_LOGIN+"|"+userNameStr+"|"+encryption(userPswStr)+"|"+"0";
+					SendInfoToServer(sendStr);
 //					timer.start();
 				}
-				else if(msg.what == FrameFormat.HANDLE_CONNECTFAIL)
+				else if(msg.what == FrameFormat.HANDLE_LOGINFAIL)
 				{
 					System.out.println("---login 服务器拒绝");
 					stopProgressDialog();
 					//Toast.makeText(getApplicationContext(), failReason, 2000).show();
-					timer.cancel();
+					if(timer!=null){
+						timer.cancel();
+					}
 					if(mConnectThread!=null){
 						mConnectThread.StopThread();
 					}
@@ -319,21 +321,6 @@ public class ArtCheckIn_Main extends Activity {
 					stopProgressDialog();
 					isCall = false;//清除线程已重启标志位
 
-				}
-				else if(msg.what == FrameFormat.HANDLE_LOGINFAIL)
-				{
-					stopProgressDialog();
-					//timer.cancel();
-					if(mConnectThread!=null){
-						mConnectThread.StopThread();
-					}
-					String failReason = (String)msg.obj;
-					//跳转到登陆界面
-					Intent intent = new Intent();
-					intent.setClass(ArtCheckIn_Main.this, ArtCheckIn_Login.class);
-					intent.putExtra("failReason", "服务器拒绝此用户登陆");
-					startActivity(intent);
-					finish();
 				}
 				else if(msg.what == FrameFormat.HANDLE_STRATEXAMOK){
 					String recStr = (String)(msg.obj);
@@ -409,7 +396,9 @@ public class ArtCheckIn_Main extends Activity {
 				}
 				else if(msg.what == FrameFormat.HANDLE_STRATEXAMNO){
 					System.out.println("--->>MainActivity收到拒绝考生开始考试");
-					timer.cancel();
+					if(timer!=null){
+						timer.cancel();
+					}
 					isWaitingStartACK = false;
 					isWaitingACK = false; 
 					//					repeatTimes = 0;
@@ -429,7 +418,9 @@ public class ArtCheckIn_Main extends Activity {
 					if(recStr.equals(sendPara)){
 						System.out.println("--->>MainActivity收到某一考生结束考试回复");
 						sendPara = "";
-						timer.cancel();
+						if(timer!=null){
+							timer.cancel();
+						}
 						isWaitingStopACK = false;
 						stillWaitStopACK = false;
 						//						repeatTimes = 0;
@@ -450,7 +441,9 @@ public class ArtCheckIn_Main extends Activity {
 				}
 				else if (msg.what == FrameFormat.HANDLE_STOPEXAMNO){
 					System.out.println("--->>MainActivity收到结束考试回复:");
-					timer.cancel();
+					if(timer!=null){
+						timer.cancel();
+					}
 					isWaitingStopACK = false;
 					stillWaitStopACK = false;
 					//					repeatTimes = 0;
@@ -464,7 +457,9 @@ public class ArtCheckIn_Main extends Activity {
 					System.out.println("--->>>>>HANDLE_ABSENTACK发送的sendPara="+sendPara);
 					if(recStr.equals(sendPara)){
 						System.out.println("--->>MainActivity收到缺考信息回复");
-						timer.cancel();
+						if(timer!=null){
+							timer.cancel();
+						}
 						String str[] = recStr.split("\\|");
 						String AbsentStudentGroupId = str[2];
 						String AbsentStudentId = str[3];
@@ -1648,34 +1643,34 @@ public class ArtCheckIn_Main extends Activity {
 		}
 	}
 	
-	class TickAnswer_Timer extends CountDownTimer   
-	{
-		public TickAnswer_Timer(long millisInFuture, long countDownInterval) {
-			super(millisInFuture, countDownInterval);
-			// TODO Auto-generated constructor stub
-		}
-		@Override
-		public void onFinish() 
-		{ //计时结束,时间到，回到主页面
-			// TODO Auto-generated method stub
-			DefineVar.tickN = 0;
-			if (!isCall){
-				if(mConnectThread!=null){
-					mConnectThread.StopThread();
-					System.out.println("----mConnectThread.StopThread--执行");
-				}
-				startProgressDialog("正在连接网络···");
-				mConnectThread = SocketConnectThread.getSocketSingleInstance(mHandler,getBaseContext()); 
-				mConnectThread.start();
-				isCall = true;
-			}						
-		}
-		@Override
-		public void onTick(long millisUntilFinished) 
-		{   
-			// TODO Auto-generated method stub
-		}
-	}
+//	class TickAnswer_Timer extends CountDownTimer   
+//	{
+//		public TickAnswer_Timer(long millisInFuture, long countDownInterval) {
+//			super(millisInFuture, countDownInterval);
+//			// TODO Auto-generated constructor stub
+//		}
+//		@Override
+//		public void onFinish() 
+//		{ //计时结束,时间到，回到主页面
+//			// TODO Auto-generated method stub
+//			DefineVar.tickN = 0;
+//			if (!isCall){
+//				if(mConnectThread!=null){
+//					mConnectThread.StopThread();
+//					System.out.println("----mConnectThread.StopThread--执行");
+//				}
+//				startProgressDialog("正在连接网络···");
+//				mConnectThread = SocketConnectThread.getSocketSingleInstance(mHandler,getBaseContext()); 
+//				mConnectThread.start();
+//				isCall = true;
+//			}						
+//		}
+//		@Override
+//		public void onTick(long millisUntilFinished) 
+//		{   
+//			// TODO Auto-generated method stub
+//		}
+//	}
 	
 	public String getLocalMacAddress() {
 		String macSerial = null;

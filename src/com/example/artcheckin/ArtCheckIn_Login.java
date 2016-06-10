@@ -170,9 +170,9 @@ public class ArtCheckIn_Login extends Activity {
 				{
 					stopProgressDialog();
 					timer.cancel();
-					if(mConnectThread!=null){
-						mConnectThread.StopThread();
-					}
+//					if(mConnectThread!=null){
+//						mConnectThread.StopThread();
+//					}
 					if(mWarningText!=null){
 						//mWarningText.setText("服务器连接超时");
 						mWarningText.setText("服务器连接失败，请稍后登录");
@@ -185,9 +185,9 @@ public class ArtCheckIn_Login extends Activity {
 					if(timer!=null){
 						timer.cancel();
 					}
-					if(mConnectThread!=null){
-						mConnectThread.StopThread();
-					}
+//					if(mConnectThread!=null){
+//						mConnectThread.StopThread();
+//					}
 					if(process!=FrameFormat.PROCESS_CONNECTFAIL&&process!=FrameFormat.PROCESS_LOGINFAIL&&
 							process!=FrameFormat.PROCESS_DIALOGBACKDOWN){
 
@@ -231,7 +231,9 @@ public class ArtCheckIn_Login extends Activity {
 					//		+ examPlace + "," + examStage;
 					stopProgressDialog();
 					Log.d("MainActivity", "---登录成功，收到的数据："+(String)(msg.obj));
-					timer.cancel();
+					if(timer!=null){
+						timer.cancel();
+					}
 					String str[] = ((String)(msg.obj)).split("\\|");
 					subjectNumStr = str[0];
 					roomNumStr = str[1];
@@ -374,13 +376,19 @@ public class ArtCheckIn_Login extends Activity {
 			{
 				mSocketDbManager.insertUserName(userNameStr);
 				//mConnectThread.startConnectSocket();
-				if(mConnectThread!=null){
-					mConnectThread.StopThread();
-				}
 				mConnectThread = SocketConnectThread.getSocketSingleInstance(mHandler,getBaseContext());
-				if(mConnectThread!=null){
+				if(mConnectThread!=null&&(!mConnectThread.isAlive())){
+					Log.e("Login","之前的线程死掉了 重新开启");
 					mConnectThread.start(); 
 				}
+				else{
+					Log.e("Login","使用之前的线程");
+					sendStr = FrameFormat.COMMAND_LOGIN+"|"+userNameStr+"|"+encryption(password)+"|"+"0";
+					//sendStr = FrameFormat.COMMAND_LOGIN+"|"+userNameStr+"|"+password+"|"+"0";
+					SendInfoToServer(sendStr);
+					timer.start();
+				}
+				
 				if(mWarningText!=null){
 					mWarningText.setText("");
 				}
@@ -466,7 +474,7 @@ public class ArtCheckIn_Login extends Activity {
 				titleText.startAnimation(animationSet);
 			}else if (animation.hashCode() == toDisappearAnimation.hashCode()){//逐渐消失
 				loginFrameLayout.bringChildToFront(loginLinearLayout);
-				speakWords("欢迎进入辅导员招聘评分系统");
+				speakWords(getResources().getString(R.string.welcome_msg_long));
 				speakWords("请您输入用户名和密码");
 			}			
 		}
@@ -811,6 +819,9 @@ public class ArtCheckIn_Login extends Activity {
 			readerTTS.stop();
 			readerTTS.shutdown();
 		}
+//		if(mConnectThread!=null){
+//			mConnectThread.StopThread();
+//		}
 	}
 
 }
